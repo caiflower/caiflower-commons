@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.caiflower.commons.redis.RedisTemplateAutoConfig,\
+com.caiflower.commons.redis.RedisCacheProvider
