@@ -21,6 +21,10 @@ public interface WebResponseCode {
      */
     int UNAUTHORIZED = 401;
     /**
+     * 无权限
+     */
+    int FORBIDDEN = 403;
+    /**
      * 未知异常
      */
     int UNKNOWN_ERROR_CODE = 500;
