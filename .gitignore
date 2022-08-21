@@ -23,6 +23,7 @@ target/
 **/target
 **/.mvn
 **/mvnw
+**/**.yml
 
 ### NetBeans ###
 /nbproject/private/
