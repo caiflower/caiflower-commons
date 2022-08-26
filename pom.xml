@@ -17,6 +17,7 @@
     <modules>
         <module>commons</module>
         <module>redis</module>
+        <module>sql-execution</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
