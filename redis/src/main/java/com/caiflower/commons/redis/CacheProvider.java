@@ -57,7 +57,7 @@ public interface CacheProvider {
      */
     void hset(String hashKey, String key, String value);
 
-    void hExpire(String hashKey, String key, String value, Long expireTime);
+    void hexpire(String hashKey, String key, String value, Long expireTime);
 
     /**
      * 带有超时的设置hash值
@@ -68,7 +68,7 @@ public interface CacheProvider {
      * @param expireTime 超时时间
      * @param timeUnit   时间单位
      */
-    void hExpire(String hashKey, String key, String value, Long expireTime, TimeUnit timeUnit);
+    void hexpire(String hashKey, String key, String value, Long expireTime, TimeUnit timeUnit);
 
     /**
      * 哈希值获取
@@ -114,4 +114,13 @@ public interface CacheProvider {
      * @param timeUnit 时间单位
      */
     boolean expire(String key, Long expireTime, TimeUnit timeUnit);
+
+    /**
+     * 删除一个key
+     *
+     * @param key key值
+     * @return true or false
+     */
+    boolean delete(String key);
+
 }

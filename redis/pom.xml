@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.caiflower.commons</groupId>
     <artifactId>redis</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>redis</name>
     <description>redis</description>
     <properties>
@@ -42,6 +42,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

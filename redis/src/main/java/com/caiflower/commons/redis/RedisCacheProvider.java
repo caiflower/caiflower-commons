@@ -1,8 +1,6 @@
 package com.caiflower.commons.redis;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Component;
@@ -81,19 +79,19 @@ public class RedisCacheProvider implements CacheProvider {
     @Override
     public void hset(String hashKey, String key, String value) {
         if ("true".equals(active)) {
-            hExpire(hashKey, key, value, expireTime, timeUnit);
+            hexpire(hashKey, key, value, expireTime, timeUnit);
         } else {
             redisTemplate.opsForHash().put(hashKey, key, value);
         }
     }
 
     @Override
-    public void hExpire(String hashKey, String key, String value, Long expireTime) {
-        hExpire(hashKey, key, value, expireTime, timeUnit);
+    public void hexpire(String hashKey, String key, String value, Long expireTime) {
+        hexpire(hashKey, key, value, expireTime, timeUnit);
     }
 
     @Override
-    public void hExpire(String hashKey, String key, String value, Long expireTime, TimeUnit timeUnit) {
+    public void hexpire(String hashKey, String key, String value, Long expireTime, TimeUnit timeUnit) {
         redisTemplate.expire(hashKey, expireTime, timeUnit);
         redisTemplate.opsForHash().put(hashKey, key, value);
     }
@@ -134,5 +132,10 @@ public class RedisCacheProvider implements CacheProvider {
     @Override
     public boolean expire(String key, Long expireTime, TimeUnit timeUnit) {
         return redisTemplate.expire(key, expireTime, timeUnit);
+    }
+
+    @Override
+    public boolean delete(String key) {
+       return redisTemplate.delete(key);
     }
 }
